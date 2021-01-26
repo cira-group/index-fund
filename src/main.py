@@ -2,16 +2,28 @@ import cira
 import random
 import time
 
+"""
+Description of your project
+"""
+
+__author__ = "Axel Gard"
+__version__ = "0.1.0"
+__license__ = "MIT"
+
 cira.alpaca.KEY_FILE = "../test_key.json"
 
 portfolio = cira.Portfolio()
 exchange = cira.Exchange()
 
-qty = 1 # choose how many stocks should be handled in one session 
 
-while exchange.is_open:
-    for stock in random.choices(exchange.stocks, k=qty):
-        stock.buy(1)
-    for stock in random.choices(portfolio.owned_stocks, k=qty):
-        stock.sell(1)
-    time.sleep(60*30) # 30 min timer 
+def main():
+    qty = 1 # choose how many stocks should be handled in one session 
+    while exchange.is_open:
+        for stk in random.choices(exchange.stocks, k=qty):
+            stk.buy(1)
+        for stk in random.choices(portfolio.owned_stocks, k=qty):
+            stk.sell(1)
+        time.sleep(60*30) # 30 min timer 
+
+if __name__ == "__main__":
+    main()
