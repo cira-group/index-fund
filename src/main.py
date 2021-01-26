@@ -2,12 +2,13 @@ import cira
 import random
 import time
 
-cira.alpaca.KEY_FILE = "../mypath/key.json"
+cira.alpaca.KEY_FILE = "../test_key.json"
 
 portfolio = cira.Portfolio()
 exchange = cira.Exchange()
 
 qty = 1 # choose how many stocks should be handled in one session 
+
 while exchange.is_open:
     for stock in random.choices(exchange.stocks, k=qty):
         stock.buy(1)
