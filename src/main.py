@@ -3,7 +3,7 @@ import random
 import time
 
 """
-Description of your project
+A super simpel index fund, that buy and sells random stocks 
 """
 
 __author__ = "Axel Gard"
